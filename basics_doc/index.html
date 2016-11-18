@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <button v-on:click="title = 'title from inline code'">Change Title</button>
+      <button v-on:click="changeTitle">Change Title</button>
+      <p>{{ title }}</p>
+    </div>
+
+
+    <div id="app2">
+      <span v-bind:message='message'>
+        Hover your mouse
+      </span>
+    </div>
+
+    <div id="app3">
+      <p v-if="ver"> Ahora me ves </p>
+      <button v-on:click="visible">visible</button>
+    </div>
+
+    <div id="app4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+      <button v-on:click="addItem">addItem</button>
+    </div>
+
+    <div id="app5">
+      <p>{{message}}</p>
+      <button v-on:click="revertirMensaje">Revertir Mensaje</button>
+    </div>
+
+    <div id="app6">
+      <p>{{message}}</p>
+      <input v-model="message" type="text">
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          title: 'Hello Vue'
+        },
+        methods: {
+          changeTitle(){
+            this.title = 'Hello From the function'
+          }
+        }
+      });
+
+      var app2 = new Vue({
+        el: '#app2',
+        data:{
+          message: 'you loaded this page on ' + new Date()
+        }
+      });
+
+      var app3 = new Vue({
+        el: '#app3',
+        data:{
+          ver: true
+        },
+        methods:{
+          visible(){
+            this.ver = !this.ver;
+            console.log("ver:", this.ver);
+          }
+        }
+      });
+
+      var app4 = new Vue({
+        el: '#app4',
+        data: {
+          todos: [
+            { text:'Javascript'},
+            { text:'Vue'},
+            { text:'awesome app'},
+          ]
+        },
+        methods: {
+          addItem(){
+            this.todos.push({text: 'new item'})
+          }
+        }
+      });
+
+      var app5 = new Vue({
+        el: '#app5',
+        data: {
+          message: 'fabian'
+        },
+        methods: {
+          revertirMensaje(){
+            this.message = this.message.split('').reverse().join('');
+          }
+        }
+      });
+
+      var app6 = new Vue({
+        el: '#app6',
+        data:{
+          message: 'cambiar este texto'
+        }
+      });
+    </script>
+  </body>
+</html>
