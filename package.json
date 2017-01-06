@@ -1,0 +1,26 @@
+{
+  "name": "basics_vue",
+  "version": "1.0.0",
+  "description": "http://vuejs.org/v2/guide/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabianNCDev/basics_vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FabianNCDev/basics_vue/issues"
+  },
+  "homepage": "https://github.com/FabianNCDev/basics_vue#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "vue": "^2.0.7",
+    "vue-resource": "^1.0.3"
+  }
+}

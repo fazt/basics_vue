@@ -6,14 +6,28 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
   <body>
-    <ol>
-      <todo-item></todo-item>
-    </ol>
+    <div id="app">
+      <ol>
+        <todo-item v-for="item in groseryList" v-bind:todo="item"></todo-item>
+      </ol>
+    </div>
 
     <script>
-      Vue.component('todo-item',{
-        template: '<li>todo item</li>'
-      });
+    Vue.component('todo-item', {
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        groseryList: [
+          {text: 'vegatables'},
+          {text: 'cheese'},
+          {text: 'whatever'}
+        ]
+      }
+    });
 
     </script>
   </body>
